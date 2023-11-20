@@ -1,0 +1,102 @@
+<div class="container mt-3">
+  <h2>Ajouter un trajet</h2>
+  <p>
+    If you want your form elements to appear side by side, use .row and .col:
+  </p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- <div class="col">
+        <label for="id">Id</label>
+        <input type="number" class="form-control" name="id" />
+      </div> -->
+      <div class="col">
+        <label for="id">Durrée trajet</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="duree"
+          placeholder="Durée du trajet"
+          name="duree"
+          required
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="type">type de trajet</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="typeTrajet"
+          placeholder="type de trajet(urbain,interurbain,longue distance)"
+          name="typeTrajet"
+        />
+      </div>
+      <div class="col">
+        <label for="villeDepart">Ville de départ</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="villeDeDepart"
+          placeholder="ville de départ"
+          name="villeDeDepart"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="villeArrivee">Ville d'arrivée</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="villeArrivee"
+          placeholder="ville d'arrivée"
+          name="villeArrivee"
+        />
+      </div>
+      <div class="col">
+        <label for="distance">Distance</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="distance"
+          placeholder="Distance"
+          name="distance"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="dateDepart">Date de départ</label>
+        <input
+          type="date"
+          class="form-control"
+          formControlName="dateDepart"
+          placeholder="Date de départ"
+          name="dateDepart"
+        />
+      </div>
+      <div class="col">
+        <label for="prix">Prix</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="prix"
+          placeholder="Prix"
+          name="prix"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="row align-items-center">
+      <div class="col">
+        <input
+                [disabled]="!form.valid"
+                class="btn btn-primary w-100"
+                type="submit"
+                value="Submit"
+              />
+      </div>
+    </div>
+  </form>
+</div>

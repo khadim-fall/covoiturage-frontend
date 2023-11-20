@@ -1,0 +1,88 @@
+<div class="container mt-3">
+  <h2>Mise à jour un trajet</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- <div class="col">
+        <label for="id">Id</label>
+        <input type="number" class="form-control" name="id" />
+      </div> -->
+      <div class="col">
+        <label for="id">Durrée trajet</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="duree"
+          name="duree"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="type">type de trajet</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="typeTrajet"
+          name="typeTrajet"
+        />
+      </div>
+      <div class="col">
+        <label for="villeDepart">Ville de départ</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="villeDeDepart"
+          name="villeDeDepart"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="villeArrivee">Ville d'arrivée</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="villeArrivee"
+          name="villeArrivee"
+        />
+      </div>
+      <div class="col">
+        <label for="distance">Distance</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="distance"
+          name="distance"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="dateDepart">Date de départ</label>
+        <input
+          type="date"
+          class="form-control"
+          formControlName="dateDepart"
+          name="dateDepart"
+        />
+      </div>
+      <div class="col">
+        <label for="prix">Prix</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="prix"
+          name="prix"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="row align-items-center">
+      <div class="col">
+        <button [disabled]="!form.valid" type="submit" class="btn btn-success">
+          Mettre à jour trajet
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

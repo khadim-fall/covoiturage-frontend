@@ -1,0 +1,167 @@
+
+<body class="d-flex flex-column">
+    <main class="flex-shrink-0">
+
+        <!-- Header-->
+        <header class="py-5">
+            <div class="container px-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xxl-6">
+                        <h1 class="fw-bolder mb-6">Une application simple comme bonjour</h1>
+                        <div class="text-center my-5">
+                            <h2 class="fw-bolder mb-3"> Quelle est notre mission ?</h2>
+                            <p class="lead fw-normal text-muted mb-4">
+                                Notre mission est de faciliter les déplacements en offrant une plateforme conviviale et sécurisée pour le covoiturage. 
+                                Que vous soyez un conducteur cherchant à partager vos trajets ou un passager 
+                                à la recherche d'une solution de transport économique et écologique,
+                                 nous sommes là pour vous aider à créer des connexions et à voyager ensemble vers une destination commune.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div ngbAccordion #accordion="ngbAccordion" class="row justify-content-center text-center">
+            <div ngbAccordionItem="first" >
+                <h2 ngbAccordionHeader >
+                    <button ngbAccordionButton> Comment réserver un covoiturage ?</button>
+                </h2>
+                <div ngbAccordionCollapse>
+                    <div ngbAccordionBody >
+                        <ng-template>
+                            
+                            Vous pouvez réserver un trajet de covoiturage sur notre application. 
+                            Il vous suffit de rechercher votre destination, de choisir la date à laquelle vous souhaitez voyager 
+                            et de sélectionner le covoiturage qui vous convient le mieux ! Certains trajets peuvent être réservés instantanément, 
+                            tandis que d'autres nécessitent l’acceptation manuelle du conducteur. 
+                            Dans les deux cas, la réservation d'un covoiturage est rapide, simple et facile.
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <div ngbAccordionItem="second">
+                <h2 ngbAccordionHeader>
+                    <button ngbAccordionButton>Comment proposer un trajet de covoiturage ?</button>
+                </h2>
+                <div ngbAccordionCollapse>
+                    <div ngbAccordionBody>
+                        <ng-template>
+                            Proposer un covoiturage sur notre application, c'est très simple. 
+                            Pour publier votre trajet, utilisez notre application web. 
+                            Indiquez vos points de départ et d'arrivée, la date et l'heure de votre départ, 
+                            le nombre de places disponibles et le prix par siège. 
+                            Vous devrez également indiquer si vous acceptez les réservations automatiquement ou manuellement, 
+                            et aurez la possibilité d'ajouter tout détail ou commentaire important au sujet de votre trajet. 
+                            Cliquez ensuite sur "Publier le trajet" – et c'est terminé !
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <div ngbAccordionItem="third">
+                <h2 ngbAccordionHeader>
+                    <button ngbAccordionButton>Comment annuler mon trajet de covoiturage ?</button>
+                </h2>
+                <div ngbAccordionCollapse>
+                    <div ngbAccordionBody>
+                        <ng-template>
+                        <p>
+                        Si vos projets changent, vous pouvez toujours annuler votre covoiturage sur l’application, 
+                        dans la rubrique "Vos trajets". Le plus tôt vous annulez, le mieux c'est. 
+                        Ainsi, votre conducteur a le temps de trouver de nouveaux passagers.
+                         Le montant de votre remboursement dépendra du moment de l’annulation. 
+                         Si vous annulez plus de 24 heures avant le départ, par exemple, 
+                         nous vous remboursons le montant intégral de votre réservation, 
+                         exceptés les frais de service.
+                        </p>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <div ngbAccordionItem="four">
+                <h2 ngbAccordionHeader>
+                    <button ngbAccordionButton>Quels sont les avantages du covoiturage ?</button>
+                </h2>
+                <div ngbAccordionCollapse>
+                    <div ngbAccordionBody>
+                        <ng-template>
+                            <p>
+                                Le covoiturage est un moyen de transport généralement plus abordable que les autres, surtout pour les longues distances. 
+                                Il est également plus écologique, car qui dit partage de véhicule, dit moins de voitures sur la route – et donc, moins d'émissions. 
+                                Le covoiturage est aussi plus sûr à l’heure actuelle : comme il n'y a que quelques personnes dans la voiture, 
+                                les points de contact et les risques sont moindres que dans les autres modes de transport.
+                            </p>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr />
+        
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.toggle('first')"> Comment réserver un covoiturage ?</button>
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.toggle('second')">Comment proposer un trajet de covoiturage ?</button>
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.toggle('third')">Comment annuler mon trajet de covoiturage ?</button>
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.toggle('four')">Quels sont les avantages du covoiturage ?</button>
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.expandAll()">Développer tout</button>
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="accordion.collapseAll()">Réduire tout</button>
+        <!-- Team members section-->
+        <section class="py-5 bg-light" >
+            <div class="container px-5 my-5">
+                <div class="text-center">
+                    <h2 class="fw-bolder">Notre équipe</h2>
+                    <p class="lead fw-normal text-muted mb-5">Dédié à la qualité et à votre succès</p>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" 
+                            #imageRef  [src]="srcImage" 
+                            (click)="changeImage(imageRef)"
+                            alt="..." 
+                            />
+                            <h5 class="fw-bolder">Khadim Fall</h5>
+                            <div class="fst-italic text-muted">Founder &amp; CEO</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="../../../assets/img/khadim1.jpg" alt="..." />
+                            <h5 class="fw-bolder">Khadim Fall</h5>
+                            <div class="fst-italic text-muted">CFO</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5 mb-5 mb-sm-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="../../../assets/img/khadim.jpg" alt="..." />
+                            <h5 class="fw-bolder">Khadim Fall</h5>
+                            <div class="fst-italic text-muted">Operations Manager</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="../../../assets/img/khadim.jpg" alt="..." />
+                            <h5 class="fw-bolder">Khadim Fall</h5>
+                            <div class="fst-italic text-muted">CTO</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer-->
+    <footer class="bg-dark py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-center flex-column flex-sm-row">
+                <div class="col-auto"><div class="text-white mb-3 mb-md-0">
+                    Copyright © 2023. Khadim FALL.
+                  </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>

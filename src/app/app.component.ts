@@ -8,18 +8,11 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent implements OnInit{
   title = 'frontendcovoiturage';
-  administrateurs:any=[];
-  constructor(private apiService: ApiService){}
   
-  getAllAdmin(): void{
-    this.apiService.getAdmins().subscribe(data =>{
-      //console.log(data);
-      this.administrateurs= data;
-    },error =>{console.log(error)}
-    );
-  }
+  constructor(){}
+  
+  
   ngOnInit(): void {
-    this.getAllAdmin();
   }
 
 }
