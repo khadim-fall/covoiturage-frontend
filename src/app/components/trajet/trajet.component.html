@@ -1,123 +1,6 @@
 <!-- Blog preview section-->
 <section class="py-2">
-  <!-- Button trigger modal -->
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button
-      type="button"
-      class="btn btn-primary me-md-2"
-      data-bs-toggle="modal"
-      data-bs-target="#modal1"
-    >
-      Type Trajet
-    </button>
-    <button
-      type="button"
-      class="btn btn-primary me-md-2"
-      data-bs-toggle="modal"
-      data-bs-target="#modal2"
-    >
-      Ville
-    </button>
-  </div>
 
-  <!-- Modal 1-->
-  <div
-    class="modal fade"
-    id="modal1"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
-            Type de Trajet
-          </h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form class="row g-3">
-            <div class="col-md-10">
-              <input type="text" class="form-control" id="inputTrajet" />
-            </div>
-            <div class="col-md-2"><button type="submit" class="btn btn-primary" (click)="addCity()">
-              Ajouter
-            </button>
-          </div>
-          </form>
-          <div class="row">
-            <ul *ngFor="let t of typeTrajets">
-              <li>{{t.designation}}</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- FIN Modal  -->
-
-  <!-- Modal 2-->
-  <div
-    class="modal fade"
-    id="modal2"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          ...
-          <form class="row g-3">
-            <div class="col-md-6">
-              <label for="inputCity" class="form-label">Nom de la Ville </label>
-              <input type="text" class="form-control" id="inputCity" />
-            </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary" (click)="addCity()">
-                Ajouter
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FIN Modal2 -->
   <div class="container px-5 my-5">
     <div class="row gx-5 justify-content-center">
       <div class="col-lg-8 col-xl-6">
@@ -127,17 +10,17 @@
             Voici les trajets disponibles.
           </p>
         </div>
-        <div class="row m-3 mb-2 ">
+        <div class="row m-3 mb-2">
           <div class="col-md-11"></div>
           <div class="col-md-1">
             <a
-            class="nav-link text-center"
-            style="color: rgb(61, 130, 220)"
-            href="javascript:void(0);"
-            [routerLink]="['']"
-            ><i class="fa fa-plus-circle fa-2x" ></i
-            ><span class="sr-only">(current)</span></a
-          >
+              class="nav-link text-center"
+              style="color: rgb(61, 130, 220)"
+              href="javascript:void(0);"
+              [routerLink]="['']"
+              ><i class="fa fa-plus-circle fa-2x"></i
+              ><span class="sr-only">(current)</span></a
+            >
           </div>
         </div>
       </div>
@@ -152,7 +35,7 @@
             <div class="text-decoration-none link-dark stretched-link">
               <h5 class="card-title mb-3">
                 Durée trajet : {{ t.duree }}h <br />
-                Type trajet : {{ t.type.designation}} <br />
+                Type trajet : {{ t.type.designation }} <br />
                 Ville de départ :
                 {{ t.depart != null ? t.depart.nom : "Error" }}
                 <br />
@@ -190,6 +73,7 @@
           width="20"
           height="20"
           alt=""
+          (click)="deleteTrajet(t.id)"
         />
         <img
           src="../../../assets/img/update.jpg"

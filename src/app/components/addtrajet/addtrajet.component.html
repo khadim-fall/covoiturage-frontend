@@ -21,13 +21,22 @@
     <div class="row">
       <div class="col">
         <label for="type">type de trajet</label>
-        <input
+        <select
+        class="form-select"
+        type="text"
+        class="form-control"
+        formControlName="typeTrajet"
+        aria-label="Default select example"
+      >
+        <option *ngFor="let t of typeTrajets" value="{{t.id}}">{{t.designation}}</option>
+      </select>
+       <!--  <input
           type="text"
           class="form-control"
           formControlName="typeTrajet"
           placeholder="type de trajet(urbain,interurbain,longue distance)"
           name="typeTrajet"
-        />
+        /> -->
       </div>
       <div class="col">
         <label for="villeDepart">Ville de départ</label>
@@ -93,7 +102,7 @@
                 type="submit"
                 value="Submit"
               /-->
-              <button (click)="onSubmit()">Submit</button>
+        <button (click)="onSubmit()">Submit</button>
       </div>
     </div>
   </form>

@@ -18,7 +18,7 @@ export class TrajetComponent implements OnInit {
   typeTrajet!: TypeTrajet;
   cityName = '';
   trajets: Trajet[] = [];
-  constructor(private apiService: ApiService, private trajetService: TrajetService, private typeTrajetService:TypeTrajetService, private router: Router) { }
+  constructor(private apiService: ApiService, private trajetService: TrajetService, private typeTrajetService: TypeTrajetService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllTrajet();
@@ -33,7 +33,7 @@ export class TrajetComponent implements OnInit {
   public getAllTrajet() {
     this.trajetService.getTrajets().subscribe(
       (data) => {
-       // console.log(data);
+        console.log(data);
         this.trajets = data;
       });
   }
@@ -44,7 +44,7 @@ export class TrajetComponent implements OnInit {
   public getTypeTrajet() {
     this.typeTrajetService.getTypeTrajets().subscribe(
       (data) => {
-       // console.log(data);
+        // console.log(data);
         this.typeTrajets = data;
       });
   }
@@ -52,7 +52,7 @@ export class TrajetComponent implements OnInit {
     this.router.navigate(['update-trajet', id]);
   }
 
-  /* deleteTrajet(id: number) {
+   deleteTrajet(id: number) {
     let confirme = confirm("êtes vous sûr de vouloir supprimer ce trajet?");
     if (confirme) {
       this.trajetService.deleteTrajet(id).subscribe(data => {
@@ -63,7 +63,7 @@ export class TrajetComponent implements OnInit {
         window.location.reload();
       }, 100);
     }
-  } */
+  } 
 
 
 
