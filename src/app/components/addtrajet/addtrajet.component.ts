@@ -1,7 +1,9 @@
+import { Ville } from './../../modele/ville';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Trajet } from 'src/app/modele/trajet';
+import { TypeTrajet } from 'src/app/modele/typeTrajet';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -17,7 +19,10 @@ export class AddtrajetComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  data:any;
+  data: any;
+  typeTrajet!: TypeTrajet;
+  villeDeDepart!: Ville;
+  villeArrivee!: Ville;
 
   form = new FormGroup({
     duree: new FormControl('', [Validators.required]),
@@ -29,11 +34,63 @@ export class AddtrajetComponent implements OnInit {
     prix: new FormControl('', [Validators.required])
   })
 
-  onSubmit(){
-    this.data = this.form.value;
-    console.log(this.data);
+  onSubmit() {
+    console.log(this.form.get("duree")?.value)
+    let type :TypeTrajet={
+      id: 1,
+      designation: String(this.form.get("designation")?.value),
+      dateCreate: new Date(),
+      dateUpdate: new Date(),
+      userId: 'string',
+      archive: true
+    }
+    let depart :Ville={
+      id:1,
+      nom:String (this.form.get("villeDeDepart")?.value),
+      dateCreate: new Date(),
+      dateUpdate:new Date(),
+      userId:'string',
+      archive:true
+    }
+    let arrivee :Ville={
+      id:1,
+      nom:'string',
+      dateCreate: new Date(),
+      dateUpdate:new Date(),
+      userId:'string',
+      archive:true
+    }
+    let data1:Trajet={
+      id:1,
+  duree: Number(this.form.get("duree")?.value),
+  type: type,
+  depart: depart,
+  arrivee: arrivee,
+  distance: Number(this.form.get("distance")?.value),
+  dateDepart: new Date(),
+  prix: Number(this.form.get("prix")?.value),
+  dateCreate: new Date(),
+  dateUpdate: new Date(),
+  userId: 'string',
+  archive: true
+    }
+    console.log(data1);
 
-    this.apiService.addTrajet(this.data).subscribe(data => {
+    this.data = this.form.value;
+    /*this.data.duree = Number(this.form.get("duree")?.value);
+    this.data.distance = Number(this.form.get("distance")?.value);
+    this.data.prix = Number(this.form.get("prix")?.value);
+    this.data.userId = String(this.form.get("userId")?.value);
+    this.data.userId = String(this.form.get("userId")?.value);
+    this.data.archive = true;
+    this.data.depart.nom =String (this.form.get("villeDeDepart")?.value);
+    this.data.dateDepart =new Date( String(this.form.get("dateDepart")?.value));
+    this.data.type.designation = String(this.form.get("designation")?.value);
+
+
+    console.log(this.data);*/
+
+    this.apiService.addTrajet(data1).subscribe(data => {
       console.log(data)
     })
     this.router.navigate(['/']);

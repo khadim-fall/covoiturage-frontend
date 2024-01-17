@@ -1,31 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Administrateur } from '../modele/administrateur';
 import { Trajet } from '../modele/trajet';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private urlServeur = "http://localhost:8080/";
+  private urlServeur = "http://localhost:8081/covoiturage-services/v1/";
   private END_POINT_ADMIN = "/administrateurs/all";
   private END_POINT_TRAJET = "/trajet/all";
   constructor(private http: HttpClient) { }
 
   //****************************************service admin */
-  public getAdmins(): Observable<Administrateur[]> {
-    return this.http.get<Administrateur[]>(`${this.urlServeur}` + this.END_POINT_ADMIN);
+  public getAdmins(): Observable<[]> {
+    return this.http.get<[]>(`${this.urlServeur}` + this.END_POINT_ADMIN);
   }
 
   //****************************************service trajest */
   //get trajets
   public getTrajets(): Observable<any> {
-    return this.http.get<any[]>(this.urlServeur + 'trajets');
+    return this.http.get<any[]>(this.urlServeur + 'trajets/all');
   }
   //ajouter trajet
   addTrajet(trajet: Trajet) {
-    return this.http.post<Trajet>(`${this.urlServeur}ajouter`, trajet);
+    return this.http.post<Trajet>(`${this.urlServeur}trajets/create`, trajet);
   }
   // Get Trajet by Id - Read
   getTrajetById(id: number): Observable<Trajet> {

@@ -1,8 +1,5 @@
 <div class="container mt-3">
   <h2>Ajouter un trajet</h2>
-  <p>
-    If you want your form elements to appear side by side, use .row and .col:
-  </p>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row">
       <!-- <div class="col">
@@ -90,12 +87,13 @@
     <br />
     <div class="row align-items-center">
       <div class="col">
-        <input
+        <!--input
                 [disabled]="!form.valid"
                 class="btn btn-primary w-100"
                 type="submit"
                 value="Submit"
-              />
+              /-->
+              <button (click)="onSubmit()">Submit</button>
       </div>
     </div>
   </form>

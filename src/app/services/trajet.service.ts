@@ -1,34 +1,44 @@
 import { Injectable } from '@angular/core';
 import { Trajet } from '../modele/trajet';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environments.local';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrajetService {
   trajets!:Trajet[];
-  trajet: any;
+  trajet!: Trajet;
 
-  constructor() {
+  private apiUrl = environment.baseUrl;
 
+  constructor(private http: HttpClient) {}
+
+  getTrajets(): Observable<Trajet[]> {
+    return this.http.get<Trajet[]>(`${this.apiUrl}/trajets/all`);
   }
-  listTrajet(): Trajet[] {
-    return this.trajets;
+
+  addTrajet(trajet: Trajet): Observable<Trajet> {
+    return this.http.post<Trajet>(`${this.apiUrl}/trajets/create`, trajet);
   }
-  ajouterTrajet(trajet:Trajet){
-    return this.trajets.push(trajet);
+
+  updateTrajet(trajet: Trajet): Observable<Trajet> {
+    return this.http.put<Trajet>(`${this.apiUrl}/trajets/update/${trajet.id}`, trajet);
   }
-  supprimerTrajet(trajet:Trajet){
-    const index =this.trajets.indexOf(trajet, 0);
-    if (index>-1) {
-      this.trajets.splice(index,1);
-    }
+
+  deleteTrajet(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/trajets/delete/${id}`);
   }
-  consulterTrajet(idTrajet:number):Trajet{
-    //this.trajet=this.trajets.find(t => t.id == idTrajet);
-    return this.trajet;
+  /* addTrajet(trajet: Trajet): Observable<Trajet> {
+    return this.http.post<Trajet>(`${this.apiUrl}/trajets/create`, trajet);
   }
-  modifierTrajet(trajet:Trajet){
-    this.supprimerTrajet(trajet);
-    this.ajouterTrajet(trajet);
+
+  updateTrajet(trajet: Trajet): Observable<Trajet> {
+    return this.http.put<Trajet>(`${this.apiUrl}/trajets/${trajet.id}`, trajet);
   }
+
+  deleteTrajet(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/trajets/${id}`);
+  } */
 }
