@@ -1,1 +1,88 @@
-<p>addreservation works!</p>
+<div class="container mt-3">
+  <h2>Ajouter un trajet</h2>
+  <form [formGroup]="form" >
+
+    <div class="row">
+      <div class="col">
+        <label for="idTrajet">type de  trajet</label>
+        <select
+        class="form-select"
+        type="text"
+        class="form-control"
+        formControlName="idTrajet"
+        aria-label="Default select example"
+      >
+        <option *ngFor="let t of trajets" value="{{t.id}}">{{t.type.designation}}- depart :{{t.depart.nom}}-arrivee :{{t.arrivee.nom}}</option>
+      </select>
+
+      </div>
+      <div class="col">
+        <label for="idTypeReservation">type de reservation</label>
+        <select
+        class="form-select"
+        type="text"
+        class="form-control"
+        formControlName="idTypeReservation"
+        aria-label="Default select example"
+      >
+        <option *ngFor="let t1 of typeReservations" value="{{t1.id}}">{{t1.libelle}}</option>
+      </select>
+
+      </div>
+    </div>
+    <div class="col">
+      <label for="idUtilisateur">Utilisateurs</label>
+      <select
+      class="form-select"
+      type="text"
+      class="form-control"
+      formControlName="idUtilisateur"
+      aria-label="Default select example"
+    >
+      <option *ngFor="let u of utilisateurs" value="{{u.id}}">{{u.prenom }} {{u.nom }}</option>
+    </select>
+
+    </div>
+
+    <div class="col">
+      <label for="etatReservation">Etat Reservation</label>
+      <select
+      class="form-select"
+      type="text"
+      class="form-control"
+      formControlName="etatReservation"
+      aria-label="Default select example"
+    >
+      <option value="EN_ATTENTE">EN_ATTENTE</option>
+      <option value="CONFIRMER">CONFIRMER</option>
+      <option value="TERMINER">TERMINER</option>
+      <option value="ANNULER">ANNULER</option>
+    </select>
+
+    </div>
+      <div class="col">
+        <label for="commentaire">commentaire</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="commentaire"
+          placeholder="commentaire"
+          name="commentaire"
+        />
+      </div>
+
+    <div class="row align-items-center">
+      <div class="col">
+
+         <input
+                [disabled]="!form.valid"
+                class="btn btn-primary w-100"
+                type="submit"
+                value="Submit"
+                (click)="onSubmit()"
+              />
+
+      </div>
+    </div>
+  </form>
+</div>

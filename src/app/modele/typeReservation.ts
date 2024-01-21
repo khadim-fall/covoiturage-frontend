@@ -1,8 +1,8 @@
-export interface TypeReservation {
-  id: number;
-  libelle: string;
-  dateCreate: Date;
-  dateUpdate: Date;
-  userId: string;
-  archive: boolean;
+export class TypeReservation {
+  id!: number;
+  libelle!: string;
+  dateCreate!: Date;
+  dateUpdate!: Date;
+  userId!: string;
+  archive!: boolean;
 }

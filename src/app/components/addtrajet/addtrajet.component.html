@@ -96,13 +96,13 @@
     <br />
     <div class="row align-items-center">
       <div class="col">
-        <!--input
+        <input
                 [disabled]="!form.valid"
                 class="btn btn-primary w-100"
                 type="submit"
                 value="Submit"
-              /-->
-        <button (click)="onSubmit()">Submit</button>
+                (click)="onSubmit()"
+              />
       </div>
     </div>
   </form>
