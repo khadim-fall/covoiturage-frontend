@@ -5,7 +5,6 @@ import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TrajetComponent } from './components/trajet/trajet.component';
-import { AdministrateurComponent } from './components/administrateur/administrateur.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './components/about/about.component';
@@ -19,13 +18,14 @@ import { NgModule } from '@angular/core';
 import { UpdateTrajetComponent } from './components/update-trajet/update-trajet.component';
 import { TypeTrajetComponent } from './components/type-trajet/type-trajet.component';
 import { VilleComponent } from './components/ville/ville.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminTemplateComponent } from './components/admin-template/admin-template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     TrajetComponent,
-    AdministrateurComponent,
     HomeComponent,
     HeaderComponent,
     AboutComponent,
@@ -36,6 +36,8 @@ import { VilleComponent } from './components/ville/ville.component';
     UpdateTrajetComponent,
     TypeTrajetComponent,
     VilleComponent,
+    LoginComponent,
+    AdminTemplateComponent,
   ],
   imports: [
     BrowserModule,

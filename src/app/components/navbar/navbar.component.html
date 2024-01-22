@@ -4,16 +4,30 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/trajet">Trajet</a></li>
-                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/reservation">Réservation</a></li>
-                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/about">About</a></li>
-                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/addreservation">Ajouer Reservation</a></li>
-                <li class="nav-item">
+                <li  *ngIf="authService.authenticatedUser!.nom && authService.authenticatedUser!.password" class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/home">Home</a></li>
+                <li  *ngIf="authService.authenticatedUser!.nom && authService.authenticatedUser!.password" class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/trajet">Trajet</a></li>
+                <li  *ngIf="authService.authenticatedUser!.nom && authService.authenticatedUser!.password" class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/reservation">Réservation</a></li>
+                <li  *ngIf="authService.authenticatedUser!.nom && authService.authenticatedUser!.password" class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/about">About</a></li>
+                <li  *ngIf="authService.authenticatedUser!.nom && authService.authenticatedUser!.password" class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a></li>
+                <li  *ngIf="authService.authenticatedUser!.nom && authService.authenticatedUser!.password" class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/addreservation">Ajouer Reservation</a></li>
+                <li class="nav-item" *ngIf="authService.authenticatedUser!.nom && authService.authenticatedUser!.password">
                   <a routerLink="/addtrajet" routerLinkActive="active" class="nav-link ">Ajouter Trajet</a>
                 </li>
+            </ul>
+            <ul class="navbar-nav"  >
+              <li>
+                <a class="nav-link">
+                  <i class="fa fa-user fa-2x btn-primary" aria-hidden="true" *ngIf="authService.authenticatedUser!.nom"></i>
+                  {{ authService.authenticatedUser!.nom }}
+                </a>
+              </li>
+              <li  >
+                <a class="btn nav-link" (click)="handleLogout()">
+                  <i class="fa fa-sign-out fa-2x" aria-hidden="true" *ngIf="authService.authenticatedUser!.nom"></i>
+                </a>
+              </li>
             </ul>
         </div>
     </div>
 </nav>
+

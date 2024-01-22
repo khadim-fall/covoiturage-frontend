@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './services/api.service';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,11 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent implements OnInit{
   title = 'frontendcovoiturage';
-  
-  constructor(){}
-  
-  
+
+  constructor(public authService:AuthenticationService) {
+  }
+
+
   ngOnInit(): void {
   }
 
